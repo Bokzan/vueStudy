@@ -7,8 +7,8 @@
 <body>
     <div id="app">
         <p><input type="text" v-model="message"></p>
-        <p><button v-on:click="greet">greet</button></p>
-        <p><button v-on:click="say('hi')">aa</button></p>
+        <p><button @click="greet">greet</button></p>
+        <p><button @click="say('hi')">aa</button></p>
     </div>
 
     <script src="js/vue.js"></script>
