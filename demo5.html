@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-else</title>
+</head>
+<body>
+<div id="app">
+
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr v-for="p in people">
+                <td>{{p.name}}</td>
+                <td>{{p.age}}</td>
+                <td>{{p.sex}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            people:[{
+                name:'a',
+                age:30,
+                sex:'nan'
+            },{
+                name: 'Bill',
+                age: 26,
+                sex: 'Male'
+            }, {
+                name: 'Tracy',
+                age: 22,
+                sex: 'Female'
+            }, {
+                name: 'Chris',
+                age: 36,
+                sex: 'Male'
+            }]
+
+
+        }
+    })
+</script>
+
+
+</body>
+</html>
