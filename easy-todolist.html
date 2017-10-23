@@ -27,11 +27,13 @@
 <script src="js/vue.js"></script>
 
 <script>
+
 Vue.component('todo-item',{
     template:'\
     <li>\
     {{title}}\
-    <button :click=$emit(\'remove\')>X</button>',
+    <button @click="$emit(\'remove\')">X</button>\
+    ',
     props:['title']
 });
 
