@@ -12,7 +12,11 @@
         {{item.message}}
     </li>
 </ul>
-
+<ul id="example2">
+    <li v-for="(item,index) of items">
+        {{parents}}-{{index}}-{{item.message}}
+    </li>
+</ul>
 <script src="js/vue.js"></script>
 
 <script>
@@ -26,6 +30,17 @@
         }
     });
 </script>
-
+<script>
+    var example2=new Vue({
+        el:'#example2',
+        data:{
+            parents:'parents',
+            items:[
+                {message:'foo'},
+                {message:'bar'}
+            ]
+        }
+    });
+</script>
 </body>
 </html>
