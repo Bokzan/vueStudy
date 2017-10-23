@@ -12,13 +12,25 @@
         {{item.message}}
     </li>
 </ul>
+
+
 <ul id="example2">
     <li v-for="(item,index) of items">
         {{parents}}-{{index}}-{{item.message}}
     </li>
 </ul>
+
+<ul id="example3">
+    <li v-for="(item,key,index) of items" :key="item.id">
+        {{key}}-{{index}}-{{item}}
+    </li>
+</ul>
+
+
 <script src="js/vue.js"></script>
 
+
+<!--example1-->
 <script>
     var example1=new Vue({
         el:'#example1',
@@ -30,6 +42,8 @@
         }
     });
 </script>
+
+<!--example2-->
 <script>
     var example2=new Vue({
         el:'#example2',
@@ -42,5 +56,20 @@
         }
     });
 </script>
+
+
+<script>
+    var example3=new Vue({
+        el:'#example3',
+        data:{
+            items:{
+                first:'jay',
+                last:'chou',
+                age:'18'
+            }
+        }
+    });
+</script>
+
 </body>
 </html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="todolist">
+    <input type="text"
+        v-model="newTodoText"
+        :keyup.enter="addNewTodo"
+        placeholder="Add a todo"
+    >
+    <ul >
+        <li
+            is="todo-item"
+            v-for="(todo,index) in todos "
+            :key="todo.id"
+            :title="todo.title"
+            @remove="todo.splice(index,1)"
+        ></li>
+    </ul>
+
+</div>
+
+
+<script src="js/vue.js"></script>
+
+<script>
+Vue.component('todo-item',{
+    template:'\
+    <li>\
+    {{title}}\
+    <button :click=$emit(\'remove\')>X</button>',
+    props:['title']
+});
+
+
+   new Vue({
+        el:'#todolist',
+        data:{
+            newTodoText:'',
+            todos:[
+                {id:1,title:'diyige'},
+                {id:2,title:'dierge'},
+                {id:3,title:'disange'}
+            ]
+        },
+        nextTodoId:4,
+       methods:{
+            addNewTodo:function () {
+                this.push({
+                    id:this.nextTodoId++,
+                    title:this.newTodoText
+                })
+                this.newTodoText=''
+            }
+       }
+    });
+</script>
+
+</body>
+</html>
