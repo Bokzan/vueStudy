@@ -6,9 +6,9 @@
 </head>
 <body>
 <div id="todolist">
-    <input type="text"
+    <input
         v-model="newTodoText"
-        :keyup.enter="addNewTodo"
+        @keyup.enter="addNewTodo"
         placeholder="Add a todo"
     >
     <ul >
@@ -17,7 +17,7 @@
             v-for="(todo,index) in todos "
             :key="todo.id"
             :title="todo.title"
-            @remove="todo.splice(index,1)"
+            @remove="todos.splice(index,1)"
         ></li>
     </ul>
 
@@ -46,12 +46,13 @@ Vue.component('todo-item',{
                 {id:1,title:'diyige'},
                 {id:2,title:'dierge'},
                 {id:3,title:'disange'}
-            ]
+            ],
+            nextTodoId:4
         },
-        nextTodoId:4,
+
        methods:{
             addNewTodo:function () {
-                this.push({
+                this.todos.push({
                     id:this.nextTodoId++,
                     title:this.newTodoText
                 })
